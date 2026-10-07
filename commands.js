@@ -46,7 +46,7 @@ function buscarAgencia(nombres) {
 
 function construirHtml(fecha, a, eco) {
   return (
-    `<div><span style="background-color:#FFF00"><u>CRUCE MAÑANA ${fecha}</u></span></div>` +
+    `<div><span style="background-color:#FFFF00"><u>CRUCE MAÑANA ${fecha}</u></span></div>` +
     `<div><br></div>` +
     `<div>OSCAC: ${a.oscac}</div>` +
     `<div>CAAT: ${a.caat}</div>` +
