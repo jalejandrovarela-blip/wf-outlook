@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANTE: reemplaza https://jalejandrovarela-blip.github.io/wf-outlook por la URL real donde subas los archivos (todas las apariciones) -->
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+  xsi:type="MailApp">
+  <Id>7c1d3b52-9a4e-4f0b-8e2a-5d6f1c9b3a10</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Invermesa</ProviderName>
+  <DefaultLocale>es-MX</DefaultLocale>
+  <DisplayName DefaultValue="Llenar cuerpo WF"/>
+  <Description DefaultValue="Llena el cuerpo del correo de cruce (fecha, OSCAC, CAAT, económico)."/>
+  <IconUrl DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/"/>
+  <AppDomains>
+    <AppDomain>https://jalejandrovarela-blip.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.8"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/commands.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.8">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="Commands.Url"/>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="wfGroup">
+                  <Label resid="Group.Label"/>
+                  <Control xsi:type="Button" id="wfButton">
+                    <Label resid="Button.Label"/>
+                    <Supertip>
+                      <Title resid="Button.Label"/>
+                      <Description resid="Button.Tip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon16"/>
+                      <bt:Image size="32" resid="Icon32"/>
+                      <bt:Image size="80" resid="Icon80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>llenarCuerpo</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon16" DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/assets/icon-16.png"/>
+          <bt:Image id="Icon32" DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/assets/icon-32.png"/>
+          <bt:Image id="Icon80" DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url" DefaultValue="https://jalejandrovarela-blip.github.io/wf-outlook/commands.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="Group.Label" DefaultValue="Wonder Fields"/>
+          <bt:String id="Button.Label" DefaultValue="Llenar cuerpo WF"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="Button.Tip" DefaultValue="Llena CRUCE, OSCAC, CAAT y ECONOMICO según el asunto y la lista en PARA."/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
